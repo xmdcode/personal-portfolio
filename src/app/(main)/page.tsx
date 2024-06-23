@@ -1,9 +1,8 @@
-import React from 'react'
+import Input from '@/components/Atoms/Input';
+import React from 'react';
 
 const Index = () => {
-  return (
-    <div>Index</div>
-  )
-}
+  return <Input name="Email" placeholder="Enter your email address" />;
+};
 
-export default Index
+export default Index;

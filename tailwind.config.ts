@@ -17,6 +17,7 @@ const config: Config = {
         'light-gray': '#C5C5C5',
         'light-red': '#e93f406e',
         'light-yellow': '#ffb8006e',
+        
       },
       fontSize: {
         '10-regular': [
