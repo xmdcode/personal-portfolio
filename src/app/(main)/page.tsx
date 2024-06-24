@@ -8,8 +8,8 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <CTA />
       <Work projects={getProjects()} />
+      <CTA />
     </>
   );
 };

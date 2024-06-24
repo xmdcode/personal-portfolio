@@ -21,17 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      
         <Header />
         <div className="lg:max-w-[1024px] mx-auto w-full">{children}</div>
         <Footer />
-        {/* <div className="absolute z-[-1] bottom-0 left-0 right-0 w-full h-[550px] flex items-center justify-center">
-          <Image
-            className="w-[1440px] h-full"
-            src={bg_image}
-            alt="bg-gradient"
-          />
-        </div> */}
         <MobileMenu activeLink={'/'} />
       </body>
     </html>

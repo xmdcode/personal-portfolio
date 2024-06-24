@@ -9,7 +9,7 @@ const Footer: React.FC<FooterProps> = (props) => {
   const {} = props;
   const year = new Date().getFullYear();
   return (
-    <footer className="relative">
+    <footer className="relative border-t border-main-dark-gray/10">
       <div className="absolute z-[-1] top-0 bottom-0 left-0 right-0 w-full  flex items-center justify-center rotate-180">
         <Image className="w-[1440px] h-full" src={bg_image} alt="bg-gradient" />
       </div>

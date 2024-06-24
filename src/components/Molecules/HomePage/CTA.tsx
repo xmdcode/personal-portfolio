@@ -5,7 +5,7 @@ import React from 'react';
 
 const CTA = () => {
   return (
-    <div className="w-full flex items-center">
+    <div className="w-full flex items-center py-[100px]">
       <div className="flex flex-col basis-1/2">
         <span className="text-48-bold text-white">Let’s work together</span>
         <span className="text-20-regular text-white text-medium-gray">
