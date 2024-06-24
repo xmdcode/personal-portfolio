@@ -17,7 +17,7 @@ const Footer: React.FC<FooterProps> = (props) => {
         <div className="flex items-center py-[42px] w-full">
           <div className="basis-3/5 flex flex-col justify-between h-[210px]">
             <div className="flex flex-col space-y-4">
-              <LogoIcon className="w-[200px] h-[60px] text-white" />
+              <LogoIcon className="w-[320px] h-[60px] text-white" />
               <span className="text-20-medium text-medium-gray">
                 Thanks for stopping by ッ
               </span>

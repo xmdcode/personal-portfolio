@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = (props) => {
       <div className="hidden md:flex h-fit fixed left-0 right-0 z-10 bottom-5 mx-auto lg:top-5  max-w-[90%] lg:max-w-[1024px] w-full py-4 lg:p-4 bg-[#18181D]/30 items-center justify-between rounded-[12px] backdrop-blur-sm">
         <div className="flex basis-2/3 lg:basis-1/2 items-center justify-between">
           <Link href="/">
-            <LogoIcon className="w-[100px] h-[30px] text-white" />
+            <LogoIcon className="w-[160px] h-[30px] text-white" />
           </Link>
           {HeaderLinks.map((item) => (
             <Link
