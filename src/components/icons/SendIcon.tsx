@@ -11,19 +11,19 @@ const SendIcon: React.FC<IconProps> = (props) => {
             id="Send"
             width="24.000000"
             height="24.000000"
-            fill="white"
-            fill-opacity="0"
+            fill="currentColor"
+            fillOpacity="0"
           />
         </clipPath>
       </defs>
-      <g clip-path="url(#clip897_2137)">
+      <g clipPath="url(#clip897_2137)">
         <path
           id="Vector"
           d="M4.93 12L3.08 18.26C2.6 19.9 4.14 21.41 5.75 20.89C10.2 19.46 14.45 17.46 18.39 14.93C19.52 14.2 21 13.55 21 12C21 10.44 19.52 9.79 18.39 9.06C14.45 6.53 10.2 4.53 5.75 3.1C4.14 2.58 2.6 4.09 3.08 5.73L4.93 12ZM4.93 12L9.83 12"
-          stroke="#0D0D0D"
-          stroke-opacity="1.000000"
-          stroke-width="2.000000"
-          stroke-linejoin="round"
+          stroke="currentColor"
+          strokeOpacity="1.000000"
+          strokeWidth="2.000000"
+          strokeLinejoin="round"
         />
       </g>
     </svg>

@@ -1,18 +1,72 @@
-import LogoIcon from '@/components/icons/LogoIcon';
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
+import GitHubIcon from '@/components/icons/GitHubIcon';
+import HomeFilledIcon from '@/components/icons/HomeFilledIcon';
+import LinkedInIcon from '@/components/icons/LinkedInIcon';
+import LogoIcon from '@/components/icons/LogoIcon';
+import XIcon from '@/components/icons/XIcon';
+import bg_image from '/public/images/header_bg.png';
 
-const Header = () => {
+const HeaderLinks = [
+  { link: '/about', title: 'About' },
+  { link: '/projects', title: 'Work' },
+  { link: '/articles', title: 'Articles' },
+  { link: '/contact', title: 'Contact' },
+];
+
+const Logos = [
+  {
+    link: '#',
+    logo: <LinkedInIcon className="w-[22px] h-[22[px] text-main-white/70" />,
+  },
+  {
+    link: '#',
+    logo: <XIcon className="w-[22px] h-[22[px] text-main-white/70" />,
+  },
+  {
+    link: '#',
+    logo: <GitHubIcon className="w-[22px] h-[22[px] text-main-white/70" />,
+  },
+];
+
+const MobileLogos = [
+  { link: '/about', logo: <HomeFilledIcon className="w-4 h-4" /> },
+  { link: '/projects', logo: 'Work' },
+  { link: '/articles', logo: 'Articles' },
+  { link: '/contact', logo: 'Contact' },
+];
+
+interface HeaderProps {}
+const Header: React.FC<HeaderProps> = (props) => {
+  const {} = props;
+
   return (
-    <header className="sticky top-5 max-w-[1024px] w-full p-4 bg-[#18181D]/30 flex items-center justify-between mx-auto rounded-[12px] backdrop-blur-sm">
-      <div className="flex items-center">
-        <Link href="/">
-          <LogoIcon className="w-[100px] h-[30px] text-white" />
-        </Link>
-        <Link href="/about">About</Link>
-        <Link href="/projects">Work</Link>
-        <Link href="/articles">Articles</Link>
-        <Link href="/contact">Contact</Link>
+    <header className="relative">
+      <div className="absolute z-[-1] top-0 left-0 right-0 w-full h-[550px] flex items-center justify-center">
+        <Image className="w-[1440px] h-full" src={bg_image} alt="bg-gradient" />
+      </div>
+      <div className="hidden md:flex h-fit fixed left-0 right-0 z-10 bottom-5 mx-auto lg:top-5  max-w-[90%] lg:max-w-[1024px] w-full py-4 lg:p-4 bg-[#18181D]/30 items-center justify-between rounded-[12px] backdrop-blur-sm">
+        <div className="flex basis-2/3 lg:basis-1/2 items-center justify-between">
+          <Link href="/">
+            <LogoIcon className="w-[100px] h-[30px] text-white" />
+          </Link>
+          {HeaderLinks.map((item) => (
+            <Link
+              className="text-16-medium text-light-gray"
+              key={item.link}
+              href={item.link}>
+              {item.title}
+            </Link>
+          ))}
+        </div>
+        <div className="basis-1/3 lg:basis-1/2 flex items-center justify-end space-x-6">
+          {Logos.map((item) => (
+            <Link key={item.link} href={item.link}>
+              {item.logo}
+            </Link>
+          ))}
+        </div>
       </div>
     </header>
   );

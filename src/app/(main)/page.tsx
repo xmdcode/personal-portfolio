@@ -1,8 +1,17 @@
-import Input from '@/components/Atoms/Input';
 import React from 'react';
+import CTA from '@/components/Molecules/HomePage/CTA';
+import Hero from '@/components/Molecules/HomePage/Hero';
+import Work from '@/components/Molecules/HomePage/Work';
+import { getProjects } from '@/providers/home';
 
-const Index = () => {
-  return <Input name="Email" placeholder="Enter your email address" />;
+const HomePage = () => {
+  return (
+    <>
+      <Hero />
+      <CTA />
+      <Work projects={getProjects()} />
+    </>
+  );
 };
 
-export default Index;
+export default HomePage;

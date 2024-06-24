@@ -1,7 +1,9 @@
-import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
 import Header from '@/components/Organisms/Header';
 import Footer from '@/components/Organisms/Footer';
+import MobileMenu from '@/components/Molecules/MobileMenu';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -19,9 +21,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+      
         <Header />
-        {children}
+        <div className="lg:max-w-[1024px] mx-auto w-full">{children}</div>
         <Footer />
+        {/* <div className="absolute z-[-1] bottom-0 left-0 right-0 w-full h-[550px] flex items-center justify-center">
+          <Image
+            className="w-[1440px] h-full"
+            src={bg_image}
+            alt="bg-gradient"
+          />
+        </div> */}
+        <MobileMenu activeLink={'/'} />
       </body>
     </html>
   );
