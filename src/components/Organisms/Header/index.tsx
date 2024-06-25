@@ -42,10 +42,12 @@ const Header: React.FC<HeaderProps> = (props) => {
   const {} = props;
 
   return (
-    <header className="relative">
-      <div className="absolute z-[-1] top-0 left-0 right-0 w-full h-[550px] flex items-center justify-center">
-        <Image className="w-[1440px] h-full" src={bg_image} alt="bg-gradient" />
-      </div>
+    <header className="relative flex items-center justify-center">
+      <div
+        className="absolute z-[-1] top-0 left-0 right-0 w-full h-[550px] bg-center bg-cover"
+        style={{ backgroundImage: 'url(/images/header_bg.png)' }}
+      />
+      <LogoIcon className="lg:hidden w-[160px] h-[30px] mt-8 opacity-50 " />
       <div className="hidden md:flex h-fit fixed left-0 right-0 z-10 bottom-5 mx-auto lg:top-5  max-w-[90%] lg:max-w-[1024px] w-full py-4 lg:p-4 bg-[#18181D]/30 items-center justify-between rounded-[12px] backdrop-blur-sm">
         <div className="flex basis-2/3 lg:basis-1/2 items-center justify-between">
           <Link href="/">

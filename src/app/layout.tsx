@@ -22,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <div className="lg:max-w-[1024px] mx-auto w-full">{children}</div>
+        <div className="lg:max-w-[1024px] mx-auto w-full px-4 2xl:px-0">
+          {children}
+        </div>
         <Footer />
         <MobileMenu activeLink={'/'} />
       </body>
