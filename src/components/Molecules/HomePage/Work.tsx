@@ -27,12 +27,7 @@ const Work: React.FC<WorkProps> = (props) => {
             className="h-[400px] lg:h-[565px] w-full flex items-center p-6 lg:pr-0 lg:pl-[60px] lg:py-[60px] bg-main-onyx rounded-[32px] border border-[#383737] overflow-hidden">
             <div className="flex flex-col justify-between lg:basis-3/5 space-y-4">
               <div className="w-[70px] h-[70px] relative">
-                <Image
-                  objectFit="contain"
-                  fill={true}
-                  src={item.icon}
-                  alt={item.title}
-                />
+                <Image fill={true} src={item.icon} alt={item.title} />
               </div>
               <span className="text-20-bold lg:text-32-bold text-white">
                 {item.title}

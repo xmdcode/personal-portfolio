@@ -26,3 +26,47 @@ export const getProjects = () => {
     },
   ];
 };
+
+export const getFourCardSection = () => {
+  return {
+    title: 'Get to know me',
+    cards: [
+      {
+        title: 'Tech Stack',
+        dscr: 'The dev tools, apps, devices, and games I use and play.',
+        link: '#',
+        image: {
+          src: '/images/get_to_know_me.png',
+          alt: 'work',
+        },
+      },
+      {
+        title: 'Tech Stack',
+        dscr: 'The dev tools, apps, devices, and games I use and play.',
+        link: '#',
+        image: {
+          src: '/images/get_to_know_me.png',
+          alt: 'work',
+        },
+      },
+      {
+        title: 'Tech Stack',
+        dscr: 'The dev tools, apps, devices, and games I use and play.',
+        link: '#',
+        image: {
+          src: '/images/get_to_know_me.png',
+          alt: 'work',
+        },
+      },
+      {
+        title: 'Tech Stack',
+        dscr: 'The dev tools, apps, devices, and games I use and play.',
+        link: '#',
+        image: {
+          src: '/images/get_to_know_me.png',
+          alt: 'work',
+        },
+      },
+    ],
+  };
+};
