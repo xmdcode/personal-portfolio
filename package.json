@@ -16,10 +16,10 @@
   },
   "dependencies": {
     "@payloadcms/db-postgres": "beta",
+    "@payloadcms/email-nodemailer": "3.0.0-beta.67",
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",
     "@payloadcms/richtext-lexical": "beta",
-    "@payloadcms/email-nodemailer":"beta",
     "@types/nodemailer": "^6.4.15",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
