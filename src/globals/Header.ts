@@ -1,0 +1,27 @@
+import GetRowLabel from '@/components/Payload/GetRowLabel'
+import type { GlobalConfig } from 'payload'
+
+export const Header: GlobalConfig = {
+  slug: 'Header',
+  access: {
+    read: () => true,
+  },
+  fields: [
+    {
+      name: 'navLinks',
+      label: 'Nav links',
+      type: 'array',
+      required: true,
+      labels: { singular: 'Nav Link', plural: 'Nav Links' },
+      fields: [
+        { name: 'label', label: 'Label', type: 'text' },
+        { name: 'link', label: 'Link', type: 'text' },
+      ],
+      admin: {
+        components: {
+          RowLabel: GetRowLabel,
+        },
+      },
+    },
+  ],
+}

@@ -19,7 +19,9 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {};
+  globals: {
+    Header: Header;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -110,6 +112,20 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Header".
+ */
+export interface Header {
+  id: number;
+  navLinks: {
+    label?: string | null;
+    link?: string | null;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

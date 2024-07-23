@@ -1,19 +1,19 @@
-import Link from 'next/link';
-import React from 'react';
-import Image from 'next/image';
-import GitHubIcon from '@/components/icons/GitHubIcon';
-import HomeFilledIcon from '@/components/icons/HomeFilledIcon';
-import LinkedInIcon from '@/components/icons/LinkedInIcon';
-import LogoIcon from '@/components/icons/LogoIcon';
-import XIcon from '@/components/icons/XIcon';
-import bg_image from '/public/images/header_bg.png';
+import Link from 'next/link'
+import React from 'react'
+import Image from 'next/image'
+import GitHubIcon from '@/components/icons/GitHubIcon'
+import HomeFilledIcon from '@/components/icons/HomeFilledIcon'
+import LinkedInIcon from '@/components/icons/LinkedInIcon'
+import LogoIcon from '@/components/icons/LogoIcon'
+import XIcon from '@/components/icons/XIcon'
+import bg_image from '/public/images/header_bg.png'
 
 const HeaderLinks = [
   { link: '/about', title: 'About' },
   { link: '/projects', title: 'Work' },
   { link: '/articles', title: 'Articles' },
   { link: '/contact', title: 'Contact' },
-];
+]
 
 const Logos = [
   {
@@ -28,18 +28,17 @@ const Logos = [
     link: '#',
     logo: <GitHubIcon className="w-[22px] h-[22px] text-main-white/70" />,
   },
-];
+]
 
-const MobileLogos = [
-  { link: '/about', logo: <HomeFilledIcon className="w-4 h-4" /> },
-  { link: '/projects', logo: 'Work' },
-  { link: '/articles', logo: 'Articles' },
-  { link: '/contact', logo: 'Contact' },
-];
-
-interface HeaderProps {}
+interface HeaderProps {
+  navLinks: {
+    id: string
+    label: string
+    link: string
+  }[]
+}
 const Header: React.FC<HeaderProps> = (props) => {
-  const {} = props;
+  const { navLinks } = props
 
   return (
     <header className="relative flex items-center justify-center">
@@ -55,12 +54,9 @@ const Header: React.FC<HeaderProps> = (props) => {
           <Link href="/">
             <LogoIcon className="w-[160px] h-[30px] text-white" />
           </Link>
-          {HeaderLinks.map((item) => (
-            <Link
-              className="text-16-medium text-light-gray"
-              key={item.link}
-              href={item.link}>
-              {item.title}
+          {navLinks.map((item) => (
+            <Link className="text-16-medium text-light-gray" key={item.id} href={item.link}>
+              {item.label}
             </Link>
           ))}
         </div>
@@ -73,7 +69,7 @@ const Header: React.FC<HeaderProps> = (props) => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
