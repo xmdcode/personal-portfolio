@@ -18,6 +18,24 @@ export const Header: GlobalConfig = {
         { name: 'link', label: 'Link', type: 'text' },
       ],
       admin: {
+        initCollapsed: true,
+        components: {
+          RowLabel: GetRowLabel,
+        },
+      },
+    },
+    {
+      name: 'socialLinks',
+      label: 'Social links',
+      type: 'array',
+      required: true,
+      labels: { singular: 'Social Link', plural: 'Social Links' },
+      fields: [
+        { name: 'label', label: 'Label', type: 'text' },
+        { name: 'link', label: 'Link', type: 'text' },
+      ],
+      admin: {
+        initCollapsed: false,
         components: {
           RowLabel: GetRowLabel,
         },

@@ -25,10 +25,11 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const globalData = await getData()
+
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen relative`}>
-        <Header navLinks={globalData.navLinks} />
+        <Header globalData={globalData} />
         <div className="px-4 2xl:px-0 pt-[148px] lg:pt-[278px] pb-[57px] lg:pb-[108px] min-h-[60vh]">
           {children}
         </div>

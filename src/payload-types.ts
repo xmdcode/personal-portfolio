@@ -124,6 +124,11 @@ export interface Header {
     link?: string | null;
     id?: string | null;
   }[];
+  socialLinks: {
+    label?: string | null;
+    link?: string | null;
+    id?: string | null;
+  }[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }

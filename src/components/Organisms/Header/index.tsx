@@ -7,6 +7,7 @@ import LinkedInIcon from '@/components/icons/LinkedInIcon'
 import LogoIcon from '@/components/icons/LogoIcon'
 import XIcon from '@/components/icons/XIcon'
 import bg_image from '/public/images/header_bg.png'
+import { mapLogosToData } from '@/components/utils/mapDataUtils'
 
 const HeaderLinks = [
   { link: '/about', title: 'About' },
@@ -31,14 +32,21 @@ const Logos = [
 ]
 
 interface HeaderProps {
-  navLinks: {
-    id: string
-    label: string
-    link: string
-  }[]
+  globalData: {
+    navLinks: {
+      id: string
+      label: string
+      link: string
+    }[]
+    socialLinks: {
+      id: string
+      label: string
+      link: string
+    }[]
+  }
 }
 const Header: React.FC<HeaderProps> = (props) => {
-  const { navLinks } = props
+  const { globalData } = props
 
   return (
     <header className="relative flex items-center justify-center">
@@ -54,17 +62,17 @@ const Header: React.FC<HeaderProps> = (props) => {
           <Link href="/">
             <LogoIcon className="w-[160px] h-[30px] text-white" />
           </Link>
-          {navLinks.map((item) => (
+          {globalData.navLinks.map((item) => (
             <Link className="text-16-medium text-light-gray" key={item.id} href={item.link}>
               {item.label}
             </Link>
           ))}
         </div>
         <div className="basis-1/3 lg:basis-1/2 flex items-center justify-end space-x-6">
-          {Logos.map((item) => (
-            <Link key={item.link} href={item.link}>
+          {mapLogosToData(globalData.socialLinks).map((item) => (
+            <a key={item.link} href={item?.link ?? '#'} target="_blank">
               {item.logo}
-            </Link>
+            </a>
           ))}
         </div>
       </div>
