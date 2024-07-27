@@ -8,6 +8,7 @@ import LogoIcon from '@/components/icons/LogoIcon'
 import XIcon from '@/components/icons/XIcon'
 import bg_image from '/public/images/header_bg.png'
 import { mapLogosToData } from '@/components/utils/mapDataUtils'
+import { Header } from '@/payload-types'
 
 const HeaderLinks = [
   { link: '/about', title: 'About' },
@@ -31,22 +32,9 @@ const Logos = [
   },
 ]
 
-interface HeaderProps {
-  globalData: {
-    navLinks: {
-      id: string
-      label: string
-      link: string
-    }[]
-    socialLinks: {
-      id: string
-      label: string
-      link: string
-    }[]
-  }
-}
-const Header: React.FC<HeaderProps> = (props) => {
-  const { globalData } = props
+interface HeaderSectionProps extends Header {}
+const HeaderSection: React.FC<HeaderSectionProps> = (props) => {
+  const { navLinks, socialLinks } = props
 
   return (
     <header className="relative flex items-center justify-center">
@@ -62,14 +50,14 @@ const Header: React.FC<HeaderProps> = (props) => {
           <Link href="/">
             <LogoIcon className="w-[160px] h-[30px] text-white" />
           </Link>
-          {globalData.navLinks.map((item) => (
-            <Link className="text-16-medium text-light-gray" key={item.id} href={item.link}>
+          {navLinks?.map((item) => (
+            <Link className="text-16-medium text-light-gray" key={item.id} href={item?.link ?? '#'}>
               {item.label}
             </Link>
           ))}
         </div>
         <div className="basis-1/3 lg:basis-1/2 flex items-center justify-end space-x-6">
-          {mapLogosToData(globalData.socialLinks).map((item) => (
+          {mapLogosToData(socialLinks)?.map((item) => (
             <a key={item.link} href={item?.link ?? '#'} target="_blank">
               {item.logo}
             </a>
@@ -80,4 +68,4 @@ const Header: React.FC<HeaderProps> = (props) => {
   )
 }
 
-export default Header
+export default HeaderSection

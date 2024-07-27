@@ -1,22 +1,22 @@
-import React from 'react';
-import { getAbout } from '@/providers/about';
+import React from 'react'
+import { getAbout } from '@/providers/about'
 
 interface AboutMeProps {
-  title: string;
+  title: string
   sections: [
     {
-      title: string;
-      dscr: string;
-    }
-  ];
+      title: string
+      dscr: string
+    },
+  ]
 }
 
 const getData = async () => {
-  return getAbout();
-};
+  return getAbout()
+}
 
 export default async function AboutMe() {
-  const { title, sections } = await getData();
+  const { title, sections } = await getData()
   return (
     <section className="flex flex-col">
       <span className="text-48-bold lg:text-80-bold text-white pb-[60px] lg:max-w-[1024px] mx-auto w-full">
@@ -26,9 +26,7 @@ export default async function AboutMe() {
         <div className="flex flex-col space-y-8 lg:max-w-[1024px] mx-auto w-full">
           {sections.map((section, index) => (
             <div key={index} className="flex flex-col space-y-2">
-              <span className="text-16-semi-bold text-medium-gray">
-                {section.title}
-              </span>
+              <span className="text-16-semi-bold text-medium-gray">{section.title}</span>
               <span className="text-15-regular lg:text-18-regular text-main-dark-gray !leading-[158%]">
                 {section.dscr}
               </span>
@@ -42,29 +40,27 @@ export default async function AboutMe() {
           e-mail
         </a>
         , or follow me on{' '}
-        <a
-          className="text-white underline"
-          href="https://x.com/xmdcode"
-          target="_blank">
+        <a className="text-white underline" href="https://x.com/xmdcode" target="_blank">
           Twitter
         </a>
         . Want to see where I’ve worked? Check out my{' '}
         <a
           className="text-white underline"
           href="https://your-website.com/resume.pdf"
-          target="_blank">
+          target="_blank"
+        >
           Resume
         </a>
         , or{' '}
         <a
           className="text-white underline"
           href="https://www.linkedin.com/in/xristos-marios-dimopoulos-a876937a/"
-          target="_blank">
+          target="_blank"
+        >
           Connect with me on LinkedIn
         </a>
         .
       </p>
     </section>
-  );
+  )
 }
-// export async

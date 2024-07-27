@@ -1,7 +1,7 @@
 import GetRowLabel from '@/components/Payload/GetRowLabel'
 import type { GlobalConfig } from 'payload'
 
-export const Header: GlobalConfig = {
+export const HeaderData: GlobalConfig = {
   slug: 'Header',
   access: {
     read: () => true,
