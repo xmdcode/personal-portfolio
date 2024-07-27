@@ -7,7 +7,7 @@ const nextConfig = {
   experimental: {
     reactCompiler: false
   },
-  images: { remotePatterns: [{ hostname: "via.placeholder.com" }] }
+  images: { remotePatterns: [{ hostname: "via.placeholder.com" }, { hostname: "localhost" }] }
 }
 
 export default withPayload(nextConfig)

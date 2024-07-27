@@ -1,4 +1,5 @@
 import { HeroSection } from '@/blocks/Atoms/HeroSection'
+import { RelationCollectionSection } from '@/blocks/RelationCollectionSection'
 import type { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
@@ -22,7 +23,7 @@ export const Pages: CollectionConfig = {
       type: 'blocks', // required
       minRows: 1,
       maxRows: 20,
-      blocks: [HeroSection],
+      blocks: [HeroSection, RelationCollectionSection],
     },
   ],
 }

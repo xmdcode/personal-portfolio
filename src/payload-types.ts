@@ -15,6 +15,7 @@ export interface Config {
     media: Media;
     pages: Page;
     projects: Project;
+    articles: Article;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -89,7 +90,7 @@ export interface Page {
   id: number;
   name?: string | null;
   slug?: string | null;
-  layout?: HeroSection[] | null;
+  layout?: (HeroSection | RelationCollectionSection)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -106,6 +107,16 @@ export interface HeroSection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Relation Collection Section".
+ */
+export interface RelationCollectionSection {
+  relation?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'relationcollectionsection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects".
  */
 export interface Project {
@@ -115,6 +126,20 @@ export interface Project {
   description?: string | null;
   link?: string | null;
   image?: number | Media | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "articles".
+ */
+export interface Article {
+  id: number;
+  title?: string | null;
+  slug?: string | null;
+  image?: number | Media | null;
+  dscr_small?: string | null;
+  dscr_big?: string | null;
   updatedAt: string;
   createdAt: string;
 }

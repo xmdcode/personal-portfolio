@@ -13,6 +13,7 @@ import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { HeaderData } from './globals/HeaderData'
 import { Projects } from './collections/Projects'
+import { Articles } from './collections/Articles'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -21,7 +22,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Media, Pages, Projects],
+  collections: [Users, Media, Pages, Projects, Articles],
   globals: [HeaderData],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

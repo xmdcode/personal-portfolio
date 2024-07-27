@@ -1,10 +1,10 @@
-import React from 'react';
-import { IconProps } from '.';
+import React from 'react'
+import { IconProps } from '.'
 
 const ArrowIcon: React.FC<IconProps> = (props) => {
-  const { className } = props;
+  const { className } = props
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none">
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
       <defs>
         <clipPath id="clip910_2199">
           <rect
@@ -12,7 +12,7 @@ const ArrowIcon: React.FC<IconProps> = (props) => {
             width="24.000000"
             height="24.000000"
             transform="translate(24.000000 24.000000) rotate(179.999985)"
-            fill="white"
+            fill="currentColor"
             fillOpacity="0"
           />
         </clipPath>
@@ -25,11 +25,11 @@ const ArrowIcon: React.FC<IconProps> = (props) => {
           strokeOpacity="1.000000"
           strokeWidth="2.000000"
           strokeLinejoin="round"
-          stroke-linecap="round"
+          strokeLinecap="round"
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default ArrowIcon;
+export default ArrowIcon

@@ -1,12 +1,12 @@
 'use client'
 import React from 'react'
 import { usePathname, useRouter } from 'next/navigation'
-import './globals.css'
 import Header from '@/components/Organisms/Header'
 import Footer from '@/components/Organisms/Footer'
 import MobileMenu from '@/components/Molecules/MobileMenu'
 import NotFound404Icon from '@/components/icons/NotFound404Icon'
 import { MainButton } from '@/components/Atoms/Button'
+import './globals.css'
 
 const NotFound = () => {
   const path = usePathname()
