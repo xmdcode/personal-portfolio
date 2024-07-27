@@ -23,7 +23,12 @@ const getData = async (page: string) => {
     showHiddenFields: false,
   })
 
-  const articles = await payload.find({ collection: 'articles', page: page ? Number(page) : 1 })
+  const articles = await payload.find({
+    collection: 'articles',
+    page: page ? Number(page) : 1,
+    limit: 4,
+  })
+
   return {
     heroSection: pageData?.docs[0]?.layout?.find((item) => item.blockType === 'herosection'),
     articles: articles.docs,
@@ -34,14 +39,15 @@ const getData = async (page: string) => {
       hasPrevPage: articles.hasPrevPage,
       prevPage: articles.prevPage,
       nextPage: articles.nextPage,
+      pagingCounter: articles.pagingCounter,
+      totalDocs: articles.totalDocs,
     },
   }
 }
 
 export default async function Articles(props) {
-  const { heroSection, articles, pagination } = await getData(props.searchParams.page)
+  const { heroSection, articles, pagination } = await getData(props?.searchParams?.page ?? '1')
 
-  console.log(pagination)
   return (
     <section className="flex flex-col">
       <HeroSection title={heroSection?.title} subtitle={heroSection?.subtitle} />
