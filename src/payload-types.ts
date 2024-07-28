@@ -124,8 +124,9 @@ export interface Project {
   title?: string | null;
   slug?: string | null;
   description?: string | null;
-  link?: string | null;
-  image?: number | Media | null;
+  link: string;
+  preview_image: number | Media;
+  icon: number | Media;
   updatedAt: string;
   createdAt: string;
 }

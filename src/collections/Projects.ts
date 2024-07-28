@@ -25,12 +25,21 @@ export const Projects: CollectionConfig = {
       name: 'link',
       label: 'link',
       type: 'text',
+      required: true,
     },
     {
-      name: 'image',
+      name: 'preview_image',
       label: 'Project Image',
       type: 'upload',
       relationTo: 'media',
+      required: true,
+    },
+    {
+      name: 'icon',
+      label: 'Icon',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
     },
   ],
 }

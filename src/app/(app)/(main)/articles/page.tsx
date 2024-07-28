@@ -1,22 +1,11 @@
 import React from 'react'
-import HeroSection from '@/components/Atoms/HeroSection'
-import { getArticles } from '@/providers/articles'
-import ArticleCard from '@/components/Molecules/Articles/ArticleCard'
-import payload from '@/lib/payload'
-import Pagination from '@/components/Atoms/Pagination'
 import { NextPageProps } from '@/genericTypes/nextjs'
+import payload from '@/lib/payload'
+import HeroSection from '@/components/Atoms/HeroSection'
+import ArticleCard from '@/components/Molecules/Articles/ArticleCard'
+import Pagination from '@/components/Atoms/Pagination'
 
-interface AboutMeProps {
-  title: string
-  sections: [
-    {
-      title: string
-      dscr: string
-    },
-  ]
-}
-
-const getData = async (page: string | string[]) => {
+const getLoaderData = async (page: string | string[]) => {
   const pageData = await payload.find({
     collection: 'pages',
     depth: 2,
@@ -48,7 +37,7 @@ const getData = async (page: string | string[]) => {
 
 export default async function Articles(props: NextPageProps) {
   const { searchParams } = props
-  const { heroSection, articles, pagination } = await getData(searchParams?.page ?? '1')
+  const { heroSection, articles, pagination } = await getLoaderData(searchParams?.page ?? '1')
 
   return (
     <section className="flex flex-col">
