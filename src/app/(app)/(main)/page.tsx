@@ -21,6 +21,8 @@ const getLoaderData = async () => {
   return { projects: projects.docs }
 }
 
+export const revalidate = 30
+
 export default async function HomePage(props: NextPageProps) {
   const { projects } = await getLoaderData()
   return (

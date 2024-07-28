@@ -18,6 +18,8 @@ const getLoaderData = async () => {
   return { HeaderData }
 }
 
+// export const revalidate = 30
+
 export default async function RootLayout({
   children,
 }: Readonly<{
