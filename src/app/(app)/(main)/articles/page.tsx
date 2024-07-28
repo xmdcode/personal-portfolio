@@ -4,6 +4,7 @@ import { getArticles } from '@/providers/articles'
 import ArticleCard from '@/components/Molecules/Articles/ArticleCard'
 import payload from '@/libs/payload'
 import Pagination from '@/components/Atoms/Pagination'
+import { NextPageProps } from '@/genericTypes/nextjs'
 
 interface AboutMeProps {
   title: string
@@ -15,7 +16,7 @@ interface AboutMeProps {
   ]
 }
 
-const getData = async (page: string) => {
+const getData = async (page: string | string[]) => {
   const pageData = await payload.find({
     collection: 'pages',
     depth: 2,
@@ -45,8 +46,9 @@ const getData = async (page: string) => {
   }
 }
 
-export default async function Articles(props) {
-  const { heroSection, articles, pagination } = await getData(props?.searchParams?.page ?? '1')
+export default async function Articles(props: NextPageProps) {
+  const { searchParams } = props
+  const { heroSection, articles, pagination } = await getData(searchParams?.page ?? '1')
 
   return (
     <section className="flex flex-col">

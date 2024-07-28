@@ -1,21 +1,23 @@
-import React from 'react';
-import { cn } from '../utils/utils';
+import React from 'react'
+import { cn } from '../utils/utils'
+import { HeroSection as HeroSectionType } from '@/payload-types'
 
 interface HeroSectionProps {
-  title: string;
-  subtitle: string;
-  wrapperClassname?: string;
+  title: HeroSectionType['title']
+  subtitle: HeroSectionType['subtitle']
+  wrapperClassname?: string
 }
 
 const HeroSection: React.FC<HeroSectionProps> = (props) => {
-  const { title, subtitle, wrapperClassname } = props;
+  const { title, subtitle, wrapperClassname } = props
 
   return (
     <div
       className={cn(
         'flex flex-col mb-[60px] border-b pb-[60px] border-[#ffffff1a]',
-        wrapperClassname
-      )}>
+        wrapperClassname,
+      )}
+    >
       <div className="lg:max-w-[1024px] mx-auto w-full flex flex-col space-y-2">
         <span className="text-48-bold lg:text-80-bold text-white max-w-full break-words">
           {title}
@@ -25,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = (props) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeroSection;
+export default HeroSection
