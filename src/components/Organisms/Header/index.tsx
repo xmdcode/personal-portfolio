@@ -8,7 +8,7 @@ import LogoIcon from '@/components/icons/LogoIcon'
 import XIcon from '@/components/icons/XIcon'
 import bg_image from '/public/images/header_bg.png'
 import { mapLogosToData } from '@/components/utils/mapDataUtils'
-import { Header } from '@/payload-types'
+import { Header as HeaderType } from '@/payload-types'
 
 const HeaderLinks = [
   { link: '/about', title: 'About' },
@@ -32,7 +32,10 @@ const Logos = [
   },
 ]
 
-interface HeaderSectionProps extends Header {}
+interface HeaderSectionProps {
+  navLinks: HeaderType['navLinks']
+  socialLinks: HeaderType['socialLinks']
+}
 const HeaderSection: React.FC<HeaderSectionProps> = (props) => {
   const { navLinks, socialLinks } = props
 
