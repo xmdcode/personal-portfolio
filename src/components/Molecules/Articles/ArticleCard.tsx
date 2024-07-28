@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { Article } from '@/payload-types'
+import { Article, Media } from '@/payload-types'
 import ImageCms from '@/components/Atoms/ImageCms'
 
 export interface ArticleCardProps extends Article {
@@ -15,13 +15,18 @@ export interface ArticleCardProps extends Article {
 const ArticleCard: React.FC<ArticleCardProps> = (props) => {
   const { id, title, image, createdAt } = props
   const date = new Date(createdAt).toLocaleString()
+  const image_object = image as Media
   return (
     <Link
       href={`/articles/${id}`}
       className="flex flex-col justify-end relative rounded-[22px] border-[#383737] h-[504px] w-full overflow-hidden group"
     >
       <div className="w-full h-full object-cover absolute group-hover:scale-105 transition-all ease-in-out delay-300">
-        <ImageCms className="object-cover" src={image?.url ?? '#'} alt={image?.alt ?? '#'} />
+        <ImageCms
+          className="object-cover"
+          src={image_object.url ?? '#'}
+          alt={image_object.alt ?? '#'}
+        />
       </div>
       <div
         className="flex flex-col justify-end relative z-[10] space-y-2 px-6 pb-6 h-1/3 w-full"
