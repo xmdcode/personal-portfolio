@@ -2,7 +2,7 @@ import React from 'react'
 import HeroSection from '@/components/Atoms/HeroSection'
 import { getArticles } from '@/providers/articles'
 import ArticleCard from '@/components/Molecules/Articles/ArticleCard'
-import payload from '@/libs/payload'
+import payload from '@/lib/payload'
 import Pagination from '@/components/Atoms/Pagination'
 import { NextPageProps } from '@/genericTypes/nextjs'
 

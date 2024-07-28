@@ -33,8 +33,8 @@ const Logos = [
 ]
 
 interface HeaderSectionProps {
-  navLinks: HeaderType['navLinks']
-  socialLinks: HeaderType['socialLinks']
+  navLinks?: HeaderType['navLinks']
+  socialLinks?: HeaderType['socialLinks']
 }
 const HeaderSection: React.FC<HeaderSectionProps> = (props) => {
   const { navLinks, socialLinks } = props
@@ -60,7 +60,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = (props) => {
           ))}
         </div>
         <div className="basis-1/3 lg:basis-1/2 flex items-center justify-end space-x-6">
-          {mapLogosToData(socialLinks)?.map((item) => (
+          {mapLogosToData(socialLinks ?? [])?.map((item) => (
             <a key={item.link} href={item?.link ?? '#'} target="_blank">
               {item.logo}
             </a>

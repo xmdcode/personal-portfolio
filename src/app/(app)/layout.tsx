@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
-import payload from '@/libs/payload'
+import payload from '@/lib/payload'
 import HeaderSection from '@/components/Organisms/Header'
 import Footer from '@/components/Organisms/Footer'
 import MobileMenu from '@/components/Molecules/MobileMenu'
