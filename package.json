@@ -15,7 +15,7 @@
     "migrate": "pnpm payload migrate:create",
     "migrate_c": "pnpm payload migrate",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-    "migrate_data":""
+    "migrate_data": "node ./src/migrations/migrate.mjs"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "beta",

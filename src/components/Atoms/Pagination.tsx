@@ -1,9 +1,6 @@
 import React from 'react'
-import { Pagination as NextUIPagination } from '@nextui-org/pagination'
 import ArrowIcon from '../icons/ArrowIcon'
 import Link from 'next/link'
-import { PaginatedDocs } from 'payload'
-import { Article } from '@/payload-types'
 
 interface PaginationProps {
   hasNextPage: boolean
