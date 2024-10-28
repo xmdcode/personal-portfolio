@@ -1,5 +1,4 @@
 import React from 'react'
-import { NextPageProps } from '@/genericTypes/nextjs'
 import payload from '@/lib/payload'
 import HeroSection from '@/components/Atoms/HeroSection'
 import ArticleCard from '@/components/Molecules/Articles/ArticleCard'
@@ -35,9 +34,9 @@ const getLoaderData = async (page: string | string[]) => {
   }
 }
 
-export default async function Articles(props: NextPageProps) {
-  const { searchParams } = props
-  const { heroSection, articles, pagination } = await getLoaderData(searchParams?.page ?? '1')
+export default async function Articles({ params }: { params: Promise<{ page: string }> }) {
+  const page = (await params).page
+  const { heroSection, articles, pagination } = await getLoaderData(page ?? '1')
 
   return (
     <section className="flex flex-col">

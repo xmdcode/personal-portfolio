@@ -1,20 +1,19 @@
-import React from 'react';
-import { InferGetServerSidePropsType } from 'next';
-import { getServerSideProps } from 'next/dist/build/templates/pages';
-import { getArticle } from '@/providers/articles';
-import HeroSection from '@/components/Atoms/HeroSection';
-import Image from 'next/image';
+import React from 'react'
+import { InferGetServerSidePropsType } from 'next'
+import { getServerSideProps } from 'next/dist/build/templates/pages'
+import { getArticle } from '@/providers/articles'
+import HeroSection from '@/components/Atoms/HeroSection'
+import Image from 'next/image'
 
 const getData = (id: string) => {
-  return getArticle(id);
-};
+  return getArticle(id)
+}
 
-const SingleArticle: React.FC<
-  InferGetServerSidePropsType<typeof getServerSideProps>
-> = async (props) => {
-  const { params } = props;
-
-  const articleData = await getData(params.id);
+const SingleArticle: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = async ({
+  params,
+}) => {
+  const id = (await params).id
+  const articleData = await getData(id)
 
   return (
     <section className="text-white lg:max-w-[1024px] mx-auto max-w-full flex flex-col">
@@ -39,7 +38,7 @@ const SingleArticle: React.FC<
         Last updated: {new Date().toLocaleDateString()}
       </span>
     </section>
-  );
-};
+  )
+}
 
-export default SingleArticle;
+export default SingleArticle

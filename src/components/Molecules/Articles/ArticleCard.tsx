@@ -24,8 +24,8 @@ const ArticleCard: React.FC<ArticleCardProps> = (props) => {
       <div className="w-full h-full object-cover absolute group-hover:scale-105 transition-all ease-in-out delay-300">
         <ImageCms
           className="object-cover"
-          src={image_object.url ?? '#'}
-          alt={image_object.alt ?? '#'}
+          src={image_object?.url ?? '#'}
+          alt={image_object?.alt ?? '#'}
         />
       </div>
       <div

@@ -1,6 +1,4 @@
 import React from 'react'
-import { getProjects } from '@/providers/home'
-import { NextPageProps } from '@/genericTypes/nextjs'
 import { getFourCardSection } from '@/providers/home'
 import CTA from '@/components/Molecules/HomePage/CTA'
 import Hero from '@/components/Molecules/HomePage/Hero'
@@ -23,7 +21,7 @@ const getLoaderData = async () => {
 
 export const revalidate = 30
 
-export default async function HomePage(props: NextPageProps) {
+export default async function HomePage() {
   const { projects } = await getLoaderData()
   return (
     <>
