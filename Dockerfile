@@ -8,7 +8,7 @@ WORKDIR /app
 
 # Copy package manager files and install dependencies
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN corepack enable npm && npm i --legacy-peer-deps; 
+RUN corepack enable npm && npm i --legacy-peer-deps
 
 # Build the Next.js application
 FROM base AS builder
@@ -16,7 +16,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED 1
-RUN corepack enable npm && npm run build;
+RUN corepack enable npm && npm run build
 
 # Final stage: Set up the runtime environment
 FROM base AS runner
