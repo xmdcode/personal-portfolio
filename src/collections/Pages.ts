@@ -2,11 +2,11 @@ import { HeroSection } from '@/blocks/Atoms/HeroSection'
 import { RelationCollectionSection } from '@/blocks/RelationCollectionSection'
 import type { CollectionConfig } from 'payload'
 
-export const Pages: CollectionConfig = {
+const Pages: CollectionConfig = {
   slug: 'pages',
-  admin: {
-    useAsTitle: 'name',
-  },
+  // admin: {
+  //   useAsTitle: 'name',
+  // },
   fields: [
     {
       name: 'name',
@@ -27,3 +27,5 @@ export const Pages: CollectionConfig = {
     },
   ],
 }
+
+export default Pages

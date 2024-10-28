@@ -1,7 +1,7 @@
 import GetRowLabel from '@/components/Payload/GetRowLabel'
 import type { GlobalConfig } from 'payload'
 
-export const HeaderData: GlobalConfig = {
+const HeaderData: GlobalConfig = {
   slug: 'Header',
   access: {
     read: () => true,
@@ -17,12 +17,12 @@ export const HeaderData: GlobalConfig = {
         { name: 'label', label: 'Label', type: 'text' },
         { name: 'link', label: 'Link', type: 'text' },
       ],
-      admin: {
-        initCollapsed: true,
-        components: {
-          RowLabel: GetRowLabel,
-        },
-      },
+      // admin: {
+      //   initCollapsed: true,
+      //   components: {
+      //     RowLabel: GetRowLabel,
+      //   },
+      // },
     },
     {
       name: 'socialLinks',
@@ -34,12 +34,14 @@ export const HeaderData: GlobalConfig = {
         { name: 'label', label: 'Label', type: 'text' },
         { name: 'link', label: 'Link', type: 'text' },
       ],
-      admin: {
-        initCollapsed: false,
-        components: {
-          RowLabel: GetRowLabel,
-        },
-      },
+      // admin: {
+      //   initCollapsed: false,
+      //   components: {
+      //     RowLabel: GetRowLabel,
+      //   },
+      // },
     },
   ],
 }
+
+export default HeaderData

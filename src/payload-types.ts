@@ -16,6 +16,7 @@ export interface Config {
     pages: Page;
     projects: Project;
     articles: Article;
+    'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -33,6 +34,7 @@ export interface Config {
 export interface UserAuthOperations {
   forgotPassword: {
     email: string;
+    password: string;
   };
   login: {
     email: string;
@@ -44,6 +46,7 @@ export interface UserAuthOperations {
   };
   unlock: {
     email: string;
+    password: string;
   };
 }
 /**
@@ -70,6 +73,7 @@ export interface User {
 export interface Media {
   id: number;
   alt: string;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -138,9 +142,44 @@ export interface Article {
   id: number;
   title?: string | null;
   slug?: string | null;
-  image?: number | Media | null;
+  image?: (number | null) | Media;
   dscr_small?: string | null;
   dscr_big?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents".
+ */
+export interface PayloadLockedDocument {
+  id: number;
+  document?:
+    | ({
+        relationTo: 'users';
+        value: number | User;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'articles';
+        value: number | Article;
+      } | null);
+  globalSlug?: string | null;
+  user: {
+    relationTo: 'users';
+    value: number | User;
+  };
   updatedAt: string;
   createdAt: string;
 }

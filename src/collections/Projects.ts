@@ -1,10 +1,10 @@
 import type { CollectionConfig } from 'payload'
 
-export const Projects: CollectionConfig = {
+const Projects: CollectionConfig = {
   slug: 'projects',
-  admin: {
-    useAsTitle: 'name',
-  },
+  // admin: {
+  //   useAsTitle: 'name',
+  // },
   fields: [
     {
       name: 'title',
@@ -43,3 +43,5 @@ export const Projects: CollectionConfig = {
     },
   ],
 }
+
+export default Projects

@@ -1,11 +1,12 @@
-import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
+// import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 
-export const Articles: CollectionConfig = {
+const Articles: CollectionConfig = {
   slug: 'articles',
-  admin: {
-    useAsTitle: 'name',
-  },
+  // admin: {
+  //   useAsTitle: 'name',
+  // },
+
   fields: [
     {
       name: 'title',
@@ -33,20 +34,22 @@ export const Articles: CollectionConfig = {
       label: 'Article Big Description',
       type: 'textarea',
     },
-    {
-      name: 'dscr',
-      label: 'Article Big Description',
-      type: 'richText',
-      // Pass the Lexical editor here and override base settings as necessary
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [
-          ...defaultFeatures,
-          // The HTMLConverter Feature is the feature which manages the HTML serializers.
-          // If you do not pass any arguments to it, it will use the default serializers.
-          HTMLConverterFeature({}),
-        ],
-      }),
-    },
-    lexicalHTML('dscr', { name: 'dscr_html' }),
+    // {
+    //   name: 'dscr',
+    //   label: 'Article Big Description',
+    //   type: 'richText',
+    //   // Pass the Lexical editor here and override base settings as necessary
+    //   editor: lexicalEditor({
+    //     features: ({ defaultFeatures }) => [
+    //       ...defaultFeatures,
+    //       // The HTMLConverter Feature is the feature which manages the HTML serializers.
+    //       // If you do not pass any arguments to it, it will use the default serializers.
+    //       HTMLConverterFeature({}),
+    //     ],
+    //   }),
+    // },
+    // lexicalHTML('dscr', { name: 'dscr_html' }),
   ],
 }
+
+export default Articles
