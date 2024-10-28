@@ -8,7 +8,12 @@ WORKDIR /app
 
 # Copy package manager files and install dependencies
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN corepack enable npm && npm i --legacy-peer-deps
+RUN \
+    if [ -f pnpm-lock.yaml ]; then \
+    corepack enable pnpm && pnpm i --frozen-lockfile; \
+    else \
+    echo "Lockfile not found." && exit 1; \
+    fi
 
 # Build the Next.js application
 FROM base AS builder
@@ -16,7 +21,12 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED 1
-RUN corepack enable npm && npm run build
+RUN \
+    if [ -f pnpm-lock.yaml ]; then \
+    corepack enable pnpm && pnpm run build; \
+    else \
+    echo "Lockfile not found." && exit 1; \
+    fi
 
 # Final stage: Set up the runtime environment
 FROM base AS runner
